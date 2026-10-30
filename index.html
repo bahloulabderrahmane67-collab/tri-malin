@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Tri Malin</title>
+<meta name="description" content="Range les objets par trois dans les bacs. Un puzzle de tri calme et malin.">
+<meta name="theme-color" content="#f4a9b8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== MENU ===== -->
+<section id="screen-menu" class="screen is-active">
+  <div class="menu-wrap">
+    <img class="menu-mascot" src="assets/ui/chat-salut.webp" alt="" width="320" height="320">
+    <h1 class="logo"><span class="logo-a">Tri</span><span class="logo-b">Malin</span></h1>
+    <p class="tagline">Range les objets par trois</p>
+
+    <button class="btn-img btn-start" type="button" data-action="start" aria-label="Jouer">
+      <img src="assets/ui/btn-play.webp" alt="" width="256" height="256">
+    </button>
+    <p class="start-hint" id="start-label">Commencer</p>
+
+    <div class="menu-stats">
+      <div class="stat"><img src="assets/ui/etoile.webp" alt="" width="256" height="256"><span id="stat-stars">0</span></div>
+      <div class="stat"><img src="assets/ui/gemme.webp" alt="" width="256" height="256"><span id="stat-level">1</span></div>
+    </div>
+
+    <div class="menu-links">
+      <button class="chip" type="button" data-action="levels">Niveaux</button>
+      <button class="chip" type="button" data-action="how">Comment jouer</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JEU ===== -->
+<section id="screen-game" class="screen">
+  <header class="hud">
+    <button class="icon-btn" type="button" data-action="menu" aria-label="Retour au menu">
+      <img src="assets/ui/btn-close.webp" alt="" width="256" height="256">
+    </button>
+    <div class="hud-center">
+      <span class="hud-level" id="hud-level">Niveau 1</span>
+      <span class="hud-moves"><b id="hud-moves">0</b> coups</span>
+    </div>
+    <button class="icon-btn" type="button" data-action="sound" aria-label="Couper le son">
+      <img src="assets/ui/btn-son.webp" alt="" width="256" height="256">
+    </button>
+  </header>
+
+  <div class="board-wrap">
+    <div id="board" class="board" role="group" aria-label="Plateau de tri"></div>
+  </div>
+
+  <footer class="tools">
+    <button class="tool" type="button" data-action="undo" aria-label="Annuler le dernier coup">
+      <img src="assets/ui/btn-bleu.webp" class="tool-bg" alt="" width="256" height="256">
+      <span class="tool-glyph">&#8630;</span>
+      <span class="tool-name">Annuler</span>
+    </button>
+    <button class="tool" type="button" data-action="addtray" aria-label="Ajouter un bac">
+      <img src="assets/ui/boost-plus.webp" alt="" width="256" height="256">
+      <span class="tool-name">Bac</span>
+      <span class="tool-count" id="count-addtray">1</span>
+    </button>
+    <button class="tool" type="button" data-action="hint" aria-label="Indice">
+      <img src="assets/ui/boost-baguette.webp" alt="" width="256" height="256">
+      <span class="tool-name">Indice</span>
+      <span class="tool-count" id="count-hint">3</span>
+    </button>
+    <button class="tool" type="button" data-action="restart" aria-label="Recommencer">
+      <img src="assets/ui/btn-orange.webp" class="tool-bg" alt="" width="256" height="256">
+      <span class="tool-glyph">&#8635;</span>
+      <span class="tool-name">Rejouer</span>
+    </button>
+  </footer>
+</section>
+
+<!-- ===== CALQUE EFFETS ===== -->
+<div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+
+<!-- ===== MODALES ===== -->
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-inner">
+      <img class="modal-mascot" id="modal-mascot" src="assets/ui/chat-joie.webp" alt="" width="320" height="320">
+      <h2 class="modal-title" id="modal-title">Bravo&nbsp;!</h2>
+      <div class="stars" id="modal-stars" hidden>
+        <img src="assets/ui/etoile.webp" alt="" width="256" height="256">
+        <img src="assets/ui/etoile.webp" alt="" width="256" height="256">
+        <img src="assets/ui/etoile.webp" alt="" width="256" height="256">
+      </div>
+      <p class="modal-text" id="modal-text"></p>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/game.js" defer></script>
+</body>
+</html>

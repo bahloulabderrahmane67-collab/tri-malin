@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+*.tgz
+_planches/
+node_modules/
