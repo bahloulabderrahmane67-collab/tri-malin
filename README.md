@@ -1,4 +1,4 @@
-# Tri Malin
+# Puzzle Box
 
 Jeu de puzzle de tri pour mobile, installable (PWA) et jouable hors ligne.
 Range trois objets identiques dans un même bac pour les faire disparaître, et vide le plateau.

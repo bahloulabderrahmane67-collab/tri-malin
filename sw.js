@@ -1,5 +1,5 @@
-/* Tri Malin — service worker */
-const CACHE = 'tri-malin-d4ac2a44e9';
+/* Puzzle Box — service worker */
+const CACHE = 'puzzle-box-bc1f4aac46';
 const ASSETS = [
   "./",
   "index.html",
